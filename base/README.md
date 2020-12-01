@@ -5,7 +5,7 @@ This repository contains Dockerfiles for images which serve as base images with 
 essential libraries and tools needed for KubeSphere language images, for example:
 
 * [s2i-nodejs](https://github.com/kubesphere/s2i-nodejs-container)
-* [s2i-python](https://github.com/kubesphere/s2i-python-container)
+* [s2i-php](https://github.com/littlezo/s2i-php-container)
 
 This container image also installs several development libraries, that are
 often required in the builder images above. It also includes NPM package manager.
@@ -40,18 +40,18 @@ do not need to call `scl enable`.
 `docker exec ... /bin/bash` command, the collection will be automatically enabled.
 
 *Note*:
-Executables in Software Collections packages (e.g., `ruby`)
+Executables in Software Collections packages (e.g., `php`)
 are not directly in a directory named in the `PATH` environment variable.
 This means that you cannot do:
 
-    $ docker exec <cid> ... ruby
+    $ docker exec <cid> ... php
 
 but must instead do:
 
-    $ docker exec <cid> ... /bin/bash -c ruby
+    $ docker exec <cid> ... /bin/bash -c php
 
 The `/bin/bash -c`, along with the setting the appropriate environment variable,
-ensures the correct `ruby` executable is found and invoked.
+ensures the correct `php` executable is found and invoked.
 
 
 Usage
@@ -62,7 +62,7 @@ Usage
 This image is available on DockerHub. To download it run:
 
 ```console
-docker pull littlezo/s2i-base-centos7
+docker pull littlezo/s2i-base-centos8
 ```
 
 To build a Base image from scratch run:
@@ -79,6 +79,9 @@ on all provided versions of s2i image.**
 
 See also
 --------
-Dockerfile and other sources are available on https://github.com/kubesphere/s2i-base-container.
+Dockerfile and other sources are available on https://github.com/littlezo/s2i-base-container.
 In that repository you also can find another variants of S2I base Dockerfiles.
-Dockerfile for CentOS is called Dockerfile, Dockerfile for RHEL is called Dockerfile.rhel7.
+Dockerfile for CentOS7 is called Dockerfile, 
+Dockerfile for CentOS8 is called Dockerfile, 
+Dockerfile for RHEL7 is called Dockerfile.rhel7.
+Dockerfile for RHEL8 is called Dockerfile.rhel8.

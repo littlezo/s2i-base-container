@@ -6,14 +6,16 @@ This repository contains Dockerfiles which serve as base images for various Kube
 Versions
 ---------------------------------
 s2i image versions currently provided are:
-* [core](core/README.md) - rhel7 base + s2i settings
-* [base](base/README.md) - s2i-core + development libraries + npm
+* [core](core/README.md) - rhel8 base + s2i settings
+* [base](base/README.md) - s2i-core + development libraries
 
 RHEL versions currently supported are:
 * RHEL7
+* RHEL8
 
 CentOS versions currently supported are:
 * CentOS7
+* CentOS8
 
 Installation
 ---------------
@@ -24,22 +26,22 @@ To build a S2I base image, choose either the CentOS or RHEL based image:
     This image is available on DockerHub. To download it run:
 
     ```
-    $ docker pull littlezo/s2i-base-centos7
+    $ docker pull littlezo/s2i-base-centos8
     ```
 
     Or
 
     ```
-    $ docker pull littlezo/s2i-core-centos7
+    $ docker pull littlezo/s2i-core-centos8
     ```
 
     To build a S2I base image from scratch run:
 
     ```
-    $ git clone --recursive https://github.com/kubesphere/s2i-base-container.git
+    $ git clone --recursive https://github.com/littlezo/s2i-base-container
     $ cd s2i-base-container
     $ git submodule update --init
-    $ make build TARGET=centos7 VERSIONS=base
+    $ make build TARGET=centos8 VERSIONS=base
     ```
 
 **Notice: By omitting the `VERSIONS` parameter, the build/test action will be performed
