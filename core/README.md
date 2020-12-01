@@ -25,45 +25,45 @@ do not need to call `scl enable`.
 `docker exec ... /bin/bash` command, the collection will be automatically enabled.
 
 *Note*:
-Executables in Software Collections packages (e.g., `ruby`)
+Executables in Software Collections packages (e.g., `php`)
 are not directly in a directory named in the `PATH` environment variable.
 This means that you cannot do:
 
-    $ docker exec <cid> ... ruby
+    $ docker exec <cid> ... php
 
 but must instead do:
 
-    $ docker exec <cid> ... /bin/bash -c ruby
+    $ docker exec <cid> ... /bin/bash -c php
 
 The `/bin/bash -c`, along with the setting the appropriate environment variable,
-ensures the correct `ruby` executable is found and invoked.
+ensures the correct `php` executable is found and invoked.
 
 
 Usage
 ------------------------
-Choose either the CentOS7 or RHEL7 base image:
-*  **RHEL7 base image**
+Choose either the CentOS8 or RHEL8 base image:
+*  **RHEL8 base image**
 
-To build a RHEL7 based image, you need to build it on properly subscribed RHEL machine.
+To build a RHEL8 based image, you need to build it on properly subscribed RHEL machine.
 
 ```
 $ git clone --recursive https://github.com/kubesphere/s2i-base-container.git
 $ cd s2i-base-container
-$ make build VERSIONS=core TARGET=rhel7
+$ make build VERSIONS=core TARGET=rhel8
 ```
 
-*  **CentOS7 base image**
+*  **CentOS8 base image**
 
 This image is available on DockerHub. To download it run:
 
 ```console
-docker pull littlezo/s2i-core-centos7
+docker pull littlezo/s2i-core-centos8
 ```
 
 To build a Base image from scratch run:
 
 ```
-$ git clone --recursive https://github.com/kubesphere/s2i-base-container.git
+$ git clone --recursive https://github.com/littlezo/s2i-base-container.git
 $ cd s2i-base-container
 $ make build VERSIONS=core
 ```
@@ -74,6 +74,9 @@ on all provided versions of s2i image.**
 
 See also
 --------
-Dockerfile and other sources are available on https://github.com/kubesphere/s2i-base-container.
+Dockerfile and other sources are available on https://github.com/littlezo/s2i-base-container.
 In that repository you also can find another variants of S2I Base Dockerfiles.
-Dockerfile for CentOS is called Dockerfile, Dockerfile for RHEL is called Dockerfile.rhel7.
+Dockerfile for CentOS is called Dockerfile, 
+Dockerfile for CentOS8 is called Dockerfile.centos8, 
+Dockerfile for RHEL7 is called Dockerfile.rhel7.
+Dockerfile for RHEL8 is called Dockerfile.rhel8.

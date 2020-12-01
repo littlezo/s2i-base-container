@@ -4,16 +4,14 @@ KubeSphere base images
 This repository contains Dockerfiles for images which serve as base images with all the
 essential libraries and tools needed for KubeSphere language images, for example:
 
-* [s2i-nodejs](https://github.com/kubesphere/s2i-nodejs-container)
+* [s2i-nodejs](https://github.com/littlezo/s2i-nodejs-container)
 * [s2i-php](https://github.com/littlezo/s2i-php-container)
 
-This container image also installs several development libraries, that are
-often required in the builder images above. It also includes NPM package manager.
+This container image also installs several development libraries,
+
 Sharing those development packages in a common layer saves disk space and
 improves pulling speed.
 
-NPM, a package manager for Node.js, offers a pleasant way to install JavaScript
-libraries, that are often needed as static files for various web applications.
 In order to offer good experience for web developers, the NPM package manager
 is also installed in the image.
 
