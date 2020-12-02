@@ -24,7 +24,15 @@ LABEL summary="$SUMMARY" \
 # This is the list of basic dependencies that all language container image can
 # consume.
 
-RUN yum update -y --setopt=tsflags=nodocs  && \
+RUN dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y && \
+    yum remove httpd* -y &&\
+    yum remove php* -y &&\
+    yum remove nginx* -y &&\
+    yum remove unit* -y &&\
+    yum remove redis* -y &&\
+    yum remove mysql* -y &&\
+    yum makecache -y && \
+    dnf module  disable httpd -y &&\
     INSTALL_PKGS="autoconf \
     automake \
     bzip2  \
